@@ -1,5 +1,5 @@
-export type DAY = (typeof DAYS)[number];
 export type DAYS = typeof DAYS;
+export type DAY = DAYS[number];
 export const DAYS = [
 	'Monday',
 	'Tuesday',
@@ -10,8 +10,8 @@ export const DAYS = [
 	'Sunday'
 ] as const;
 
-export type HOUR = (typeof HOURS)[number];
 export type HOURS = typeof HOURS;
+export type HOUR = HOURS[number];
 export const HOURS = [
 	'9AM',
 	'10AM',
@@ -26,3 +26,7 @@ export const HOURS = [
 	'7PM',
 	'8PM'
 ] as const;
+
+export type COLOURS = typeof COLOURS;
+export type COLOUR = COLOURS[number];
+export const COLOURS = ['red'] as const;

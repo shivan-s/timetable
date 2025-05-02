@@ -8,16 +8,18 @@
 	let { day, children }: Props = $props();
 </script>
 
-<div style="--hourlength: {HOURS.length}">
+<div title={day} style="--hourlength: {HOURS.length}">
 	<header>{day}</header>
 	{@render children?.()}
 </div>
 
 <style>
 	div {
+		position: sticky;
+		top: 0;
 		display: grid;
-		grid-template-rows: 1rem;
-		& header {
+		grid-template-rows: 1rem repeat(var(--hourlength), 1fr);
+		& > header {
 			text-align: center;
 			user-select: none;
 		}

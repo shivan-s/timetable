@@ -1,4 +1,9 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"timetable": "Timetable"
+	"timetable": "Timetable",
+	"unassign": "Unassign",
+	"delete": "Delete",
+	"create": "Create",
+	"name": "Name",
+	"empty": "Empty"
 }

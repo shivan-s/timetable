@@ -1,4 +1,4 @@
 import { writable } from 'svelte/store';
-import type { Items } from './items';
+import type Item from './items';
 
-export const items = writable<Items>([]);
+export const items = writable<Item[]>([]);
