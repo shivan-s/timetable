@@ -36,12 +36,17 @@
 	const container = item.time ? `${item.time.day}-${item.time.hour}` : UNASSIGNED_ITEMS_CONTAINER;
 </script>
 
-<div in:receive out:send use:draggable={{ container, dragData: item }}>
+<div
+	style="--colour: {item.colour}"
+	in:receive
+	out:send
+	use:draggable={{ container, dragData: item }}
+>
 	{item.name}
 	<form onsubmit={handleSubmit}>
 		<input {...inputProps(item.id)} />
 		<button in:fade={{ easing: sineIn }}>
-			<Icon icon="delete" />
+			<Icon icon="delete" width="1rem" />
 		</button>
 	</form>
 </div>
@@ -54,10 +59,11 @@
 		align-items: center;
 		grid-gap: 0.25rem;
 		cursor: grab;
-		border: black solid 1px;
-		border-radius: 0.25rem;
+		border: var(--c-primary) solid 2px;
+		background-color: var(--colour);
 		padding: 0.25rem 0.5rem;
 		overflow: hidden;
+		box-shadow: 0.25rem 0.25rem 0 var(--c-shadow);
 	}
 	div:active {
 		cursor: grabbing;

@@ -38,6 +38,10 @@
 
 		& div {
 			grid-area: stack;
+
+			& em {
+				user-select: none;
+			}
 		}
 
 		& div.content {

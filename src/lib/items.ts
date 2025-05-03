@@ -11,18 +11,24 @@ export interface ItemBase {
 	id: ReturnType<typeof crypto.randomUUID>;
 	name: string;
 	time: Time | null;
+	colour: string | null;
 }
 
 class Item implements ItemBase {
 	id;
 	name;
 	time: Time | null;
+	colour: string | null = null;
 
 	constructor(item: Partial<ItemBase> & Omit<ItemBase, 'id' | 'time'>) {
 		this.id = item.id ?? crypto.randomUUID();
 		this.time = item.time ?? null;
 		this.name = item.name;
 		this.#updateItems();
+
+		if (!this.colour) {
+			this.#assignColour();
+		}
 	}
 
 	static find(itemId: string, items: ItemBase[]): Item {
@@ -66,6 +72,20 @@ class Item implements ItemBase {
 	#updateItems(): void {
 		this.#removeItems();
 		items.update((i) => [...i, this]);
+	}
+
+	/** @private Assigns colour based on name  */
+	#assignColour(): void {
+		const name = this.name.toUpperCase();
+		const saturation = 75;
+		const lightness = 75;
+		let hash = 0;
+		for (let i = 0; i < name.length; i++) {
+			hash = name.charCodeAt(i) + ((hash << 5) - hash);
+			hash = hash & hash;
+		}
+		const c = `hsl(${hash % 360}, ${saturation}%, ${lightness}%)`;
+		this.colour = c;
 	}
 }
 export default Item;

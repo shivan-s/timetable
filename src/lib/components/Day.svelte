@@ -18,7 +18,7 @@
 		position: sticky;
 		top: 0;
 		display: grid;
-		grid-template-rows: 1rem repeat(var(--hourlength), 1fr);
+		grid-template-rows: auto repeat(var(--hourlength), 1fr);
 		& > header {
 			text-align: center;
 			user-select: none;
