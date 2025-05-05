@@ -4,8 +4,8 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import { error } from '@sveltejs/kit';
 	import { items } from '$lib/stores';
-	import { crossfade, fade } from 'svelte/transition';
-	import { sineIn } from 'svelte/easing';
+	import { crossfade } from 'svelte/transition';
+	import Button from '$lib/components/Button.svelte';
 
 	interface Props {
 		item: Item;
@@ -36,36 +36,36 @@
 	const container = item.time ? `${item.time.day}-${item.time.hour}` : UNASSIGNED_ITEMS_CONTAINER;
 </script>
 
-<div
-	style="--colour: {item.colour}"
-	in:receive
-	out:send
-	use:draggable={{ container, dragData: item }}
->
+<div style="--hue: {item.hue}" in:receive out:send use:draggable={{ container, dragData: item }}>
 	{item.name}
 	<form onsubmit={handleSubmit}>
 		<input {...inputProps(item.id)} />
-		<button in:fade={{ easing: sineIn }}>
+		<Button hue={item.hue}>
 			<Icon icon="delete" width="1rem" />
-		</button>
+		</Button>
 	</form>
 </div>
 
 <style>
 	div {
+		--sat: 75%;
 		display: grid;
 		grid-template-columns: 1fr auto;
 		grid-template-rows: 1fr;
 		align-items: center;
 		grid-gap: 0.25rem;
 		cursor: grab;
-		border: var(--c-primary) solid 2px;
-		background-color: var(--colour);
+		color: hsla(var(--hue), var(--sat), 10%, 1);
+		border: 2px solid hsla(var(--hue), var(--sat), 15%, 1);
 		padding: 0.25rem 0.5rem;
 		overflow: hidden;
-		box-shadow: 0.25rem 0.25rem 0 var(--c-shadow);
+		background-color: hsla(var(--hue), var(--sat), 80%, 1);
+		box-shadow: 0.125rem 0.125rem 0 hsla(var(--hue), var(--sat), 15%, 0.8);
+		z-index: 1;
+		transition: box-shadow 0.5s ease-in-out;
 	}
 	div:active {
 		cursor: grabbing;
+		box-shadow: 0.5rem 0.5rem 0.125rem hsla(var(--hue), var(--sat), 20%, 0.6);
 	}
 </style>

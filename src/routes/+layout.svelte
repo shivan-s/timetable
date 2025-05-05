@@ -2,20 +2,25 @@
 	let { children } = $props();
 	import * as m from '$i18n/messages.js';
 	import Footer from '$lib/components/Footer.svelte';
+	import { SEED } from '$lib/constants';
 </script>
 
 <svelte:head><title>{m.timetable()}</title></svelte:head>
 
-<header></header>
-<main>
+<header style="--hue: {SEED}"></header>
+<main style="--hue: {SEED}">
 	{@render children()}
 </main>
-<footer><Footer /></footer>
+<footer style="--hue: {SEED}"><Footer /></footer>
 
 <style>
+	:global(*) {
+		box-sizing: border-box;
+	}
 	:root {
 		/* colour */
 		--c-primary: hsla(300, 7%, 10%, 1);
+		--c-highlight: hsla(300, 85%, 85%, 1);
 		--c-background: hsla(300, 85%, 95%, 1);
 		--c-shadow: hsla(300, 7%, 10%, 0.6);
 		/* spacing */
@@ -31,22 +36,25 @@
 		margin: 0rem;
 		padding: 0rem;
 		min-height: 100dvh;
-		background-color: var(--c-background);
-		color: var(--c-primary);
 	}
 
 	main {
 		display: flex;
+		background-color: hsla(var(--hue), 25%, 95%, 1);
+		color: hsla(var(--hue), 7%, 10%, 1);
 		flex-direction: column;
-		padding-inline: var(--padding-inline);
 		gap: var(--gap);
+		padding: var(--padding);
 	}
 
 	header {
-		margin-block-end: 0.5rem;
+		background-color: hsla(var(--hue), 25%, 95%, 1);
+		color: hsla(var(--hue), 7%, 10%, 1);
 	}
 
 	footer {
-		margin-block-start: 0.5rem;
+		background-color: hsla(var(--hue), 25%, 95%, 1);
+		color: hsla(var(--hue), 8%, 10%, 1);
+		padding-block-end: 0.25rem;
 	}
 </style>

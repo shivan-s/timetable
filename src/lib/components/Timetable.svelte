@@ -22,11 +22,13 @@
 
 <style>
 	section {
+		z-index: 0;
 		height: 100%;
 		display: grid;
 		grid-template-columns: auto repeat(var(--daylength), 1fr);
-		border: darkslategray solid 1px;
+		border: 3px solid var(--c-primary);
 		overflow: scroll;
+		scrollbar-width: none;
 	}
 
 	div.hour-column {

@@ -50,9 +50,9 @@
 			padding: 0.25rem;
 			flex-wrap: nowrap;
 			align-items: center;
-			min-height: 2.5rem;
+			min-height: 3rem;
 			overflow-x: scroll;
-			overflow-y: hidden;
+			scrollbar-width: none;
 			border: lightgrey dotted 2px;
 		}
 

@@ -1,4 +1,4 @@
-import { DAYS, HOURS, type DAY, type HOUR } from '$lib/constants';
+import { DAYS, HOURS, SEED, type DAY, type HOUR } from '$lib/constants';
 import { items } from '$lib/stores';
 import { error } from '@sveltejs/kit';
 
@@ -11,22 +11,22 @@ export interface ItemBase {
 	id: ReturnType<typeof crypto.randomUUID>;
 	name: string;
 	time: Time | null;
-	colour: string | null;
+	hue: number | null;
 }
 
 class Item implements ItemBase {
 	id;
 	name;
-	time: Time | null;
-	colour: string | null = null;
+	time: ItemBase['time'];
+	hue: ItemBase['hue'] = null;
 
-	constructor(item: Partial<ItemBase> & Omit<ItemBase, 'id' | 'time'>) {
+	constructor(item: Partial<ItemBase> & Omit<ItemBase, 'id' | 'time' | 'colour'>) {
 		this.id = item.id ?? crypto.randomUUID();
 		this.time = item.time ?? null;
 		this.name = item.name;
 		this.#updateItems();
 
-		if (!this.colour) {
+		if (!this.hue) {
 			this.#assignColour();
 		}
 	}
@@ -74,18 +74,16 @@ class Item implements ItemBase {
 		items.update((i) => [...i, this]);
 	}
 
-	/** @private Assigns colour based on name  */
+	/** @private Assign hue based on name  */
 	#assignColour(): void {
 		const name = this.name.toUpperCase();
-		const saturation = 75;
-		const lightness = 75;
 		let hash = 0;
 		for (let i = 0; i < name.length; i++) {
 			hash = name.charCodeAt(i) + ((hash << 5) - hash);
 			hash = hash & hash;
 		}
-		const c = `hsl(${hash % 360}, ${saturation}%, ${lightness}%)`;
-		this.colour = c;
+		const hue = (hash + SEED) % 360;
+		this.hue = hue;
 	}
 }
 export default Item;

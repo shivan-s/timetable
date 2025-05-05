@@ -1,27 +1,36 @@
 <script lang="ts">
 	import Item from '$lib/items';
-	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 	import { z } from 'zod';
 	import * as m from '$i18n/messages.js';
-	import Icon from '$lib/components/Icon.svelte';
 	import type { DAY, HOUR } from '$lib/constants';
+	import Input from '$lib/components/Input.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
+	import Icon from '$lib/components/Icon.svelte';
 
 	interface Props {
 		day?: DAY;
 		hour?: HOUR;
-		popoverId?: HTMLDialogElement['id'];
+		popoverId: HTMLButtonAttributes['popovertarget'];
 	}
 
 	const { day, hour, popoverId }: Props = $props();
 
 	const inputProps: HTMLInputAttributes & { name: string; minlength: number; maxlength: number } = {
-		id: 'create',
+		id: `create-${day}-${hour}`,
 		type: 'text',
+		autofocus: true,
 		autocomplete: 'off',
 		name: 'name',
 		required: true,
 		minlength: 1,
 		maxlength: 20
+	};
+
+	const dialogProps: HTMLAttributes<HTMLDialogElement> & { id: string } = {
+		id: popoverId!,
+		popover: ''
 	};
 
 	function handleSubmit(event: SubmitEvent & { currentTarget: EventTarget & HTMLFormElement }) {
@@ -40,38 +49,88 @@
 			} else {
 				new Item({ name });
 			}
-			if (popoverId) {
-				document.getElementById(popoverId)?.hidePopover();
-			}
+			document.getElementById(dialogProps.id)?.hidePopover();
 			event.currentTarget.reset();
 		}
 	}
 </script>
 
-<form onsubmit={handleSubmit}>
-	<label for={inputProps.id}>{m.name()}</label>
-	<input {...inputProps} />
-	<button><Icon icon="create" /></button>
-</form>
+<dialog {...dialogProps}>
+	<header>
+		<h2 class="time">
+			{day}
+			{hour}
+		</h2>
+		<Button
+			aria-label={m.close()}
+			title={m.close()}
+			popovertarget={dialogProps.id}
+			popovertargetaction="hide">&#x2715</Button
+		>
+	</header>
+	<form onsubmit={handleSubmit}>
+		<label for={inputProps.id}>{m.name()}</label>
+		<span class="input">
+			<Input {...inputProps} />
+		</span>
+		<span class="button">
+			<Button><Icon icon="create" /></Button>
+		</span>
+	</form>
+</dialog>
 
 <style>
-	form {
-		display: grid;
-		grid-template-areas:
-			'label label'
-			'input button';
-		grid-template-rows: auto auto;
-		grid-template-columns: 22ch 2rem auto;
-		column-gap: var(--gap);
+	dialog {
+		border: solid 2px var(--c-primary);
+		background-color: var(--c-background);
+		padding: var(--padding);
+		box-shadow: 0.5rem 0.5rem 0 hsla(0, 100%, 0%, 0.7);
+		transition:
+			display 0.5s ease-in-out,
+			opacity 0.5s ease-in-out;
+		transition-behavior: allow-discrete;
+		opacity: 0;
+		& form {
+			display: grid;
+			grid-template-areas:
+				'label label'
+				'input button';
+			grid-template-rows: auto auto;
+			grid-template-columns: auto 2rem auto;
+			column-gap: var(--gap);
+			justify-content: center;
+			align-items: center;
 
-		& > label {
-			grid-area: label;
+			& > label {
+				grid-area: label;
+			}
+			& > .input {
+				grid-area: input;
+			}
+			& > .button {
+				min-width: 2rem;
+				grid-area: button;
+			}
 		}
-		& > input {
-			grid-area: input;
+		&:popover-open {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			opacity: 1;
+
+			@starting-style {
+				opacity: 0;
+			}
 		}
-		& > button {
-			grid-area: button;
+		& header {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+			h2 {
+				margin: 0;
+				padding: 0;
+			}
 		}
 	}
 </style>
