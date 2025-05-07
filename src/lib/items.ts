@@ -20,14 +20,14 @@ class Item implements ItemBase {
 	time: ItemBase['time'];
 	hue: ItemBase['hue'] = null;
 
-	constructor(item: Partial<ItemBase> & Omit<ItemBase, 'id' | 'time' | 'colour'>) {
+	constructor(item: Partial<ItemBase> & Omit<ItemBase, 'id' | 'time' | 'hue'>) {
 		this.id = item.id ?? crypto.randomUUID();
 		this.time = item.time ?? null;
 		this.name = item.name;
 		this.#updateItems();
 
 		if (!this.hue) {
-			this.#assignColour();
+			this.#assignHue();
 		}
 	}
 
@@ -75,11 +75,11 @@ class Item implements ItemBase {
 	}
 
 	/** @private Assign hue based on name  */
-	#assignColour(): void {
+	#assignHue(): void {
 		const name = this.name.toUpperCase();
 		let hash = 0;
 		for (let i = 0; i < name.length; i++) {
-			hash = name.charCodeAt(i) + ((hash << 5) - hash);
+			hash = name.charCodeAt(i) * 45 + ((hash << 5) - hash);
 			hash = hash & hash;
 		}
 		const hue = (hash + SEED) % 360;

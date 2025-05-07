@@ -82,14 +82,18 @@
 <style>
 	dialog {
 		border: solid 2px var(--c-primary);
-		background-color: var(--c-background);
-		padding: var(--padding);
+		background-color: inherit;
+		padding: 2rem;
 		box-shadow: 0.5rem 0.5rem 0 hsla(0, 100%, 0%, 0.7);
 		transition:
 			display 0.5s ease-in-out,
 			opacity 0.5s ease-in-out;
 		transition-behavior: allow-discrete;
 		opacity: 0;
+		& h2 {
+			font-size: 1rem;
+			margin: 0;
+		}
 		& form {
 			display: grid;
 			grid-template-areas:

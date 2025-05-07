@@ -36,8 +36,16 @@
 	const container = item.time ? `${item.time.day}-${item.time.hour}` : UNASSIGNED_ITEMS_CONTAINER;
 </script>
 
-<div style="--hue: {item.hue}" in:receive out:send use:draggable={{ container, dragData: item }}>
-	{item.name}
+<div
+	title={item.name}
+	style="--hue: {item.hue}"
+	in:receive
+	out:send
+	use:draggable={{ container, dragData: item }}
+>
+	<span>
+		{item.name}
+	</span>
 	<form onsubmit={handleSubmit}>
 		<input {...inputProps(item.id)} />
 		<Button hue={item.hue}>
@@ -58,11 +66,13 @@
 		color: hsla(var(--hue), var(--sat), 10%, 1);
 		border: 2px solid hsla(var(--hue), var(--sat), 15%, 1);
 		padding: 0.25rem 0.5rem;
-		overflow: hidden;
 		background-color: hsla(var(--hue), var(--sat), 80%, 1);
 		box-shadow: 0.125rem 0.125rem 0 hsla(var(--hue), var(--sat), 15%, 0.8);
 		z-index: 1;
 		transition: box-shadow 0.5s ease-in-out;
+		& span {
+			white-space: nowrap;
+		}
 	}
 	div:active {
 		cursor: grabbing;
