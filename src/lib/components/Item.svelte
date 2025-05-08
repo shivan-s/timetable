@@ -26,11 +26,7 @@
 		const formData = new FormData(event.currentTarget);
 		const itemId = formData?.get(inputName)?.toString() || error(500);
 		const item = Item.find(itemId, $items);
-		if (item.time) {
-			item.unassign();
-		} else {
-			item.delete();
-		}
+		item.delete();
 	}
 
 	const container = item.time ? `${item.time.day}-${item.time.hour}` : UNASSIGNED_ITEMS_CONTAINER;

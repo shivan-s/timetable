@@ -20,9 +20,10 @@
 
 <style>
 	nav {
+		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		display: flex;
+		text-align: center;
 		height: 100%;
 	}
 

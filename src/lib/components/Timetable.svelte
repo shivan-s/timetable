@@ -24,6 +24,7 @@
 	section {
 		z-index: 0;
 		height: 100%;
+		width: 100dwh;
 		display: grid;
 		grid-template-columns: auto repeat(var(--daylength), 1fr);
 		border: 3px solid var(--c-primary);
@@ -38,6 +39,9 @@
 		align-items: center;
 		grid-template-rows: auto repeat(var(--hourlength), 1fr);
 		padding-inline: 0.125rem;
+		border-inline-end: 1px solid grey;
+		backdrop-filter: blur(3px);
+		z-index: 1;
 		& > * {
 			text-align: center;
 		}

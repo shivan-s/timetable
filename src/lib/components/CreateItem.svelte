@@ -3,7 +3,7 @@
 	import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 	import { z } from 'zod';
 	import * as m from '$i18n/messages.js';
-	import type { DAY, HOUR } from '$lib/constants';
+	import { SEED, type DAY, type HOUR } from '$lib/constants';
 	import Input from '$lib/components/Input.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
@@ -55,7 +55,7 @@
 	}
 </script>
 
-<dialog {...dialogProps}>
+<dialog style="--hue: {SEED}" {...dialogProps}>
 	<header>
 		<h2 class="time">
 			{day}
@@ -81,18 +81,25 @@
 
 <style>
 	dialog {
-		border: solid 2px var(--c-primary);
-		background-color: inherit;
-		padding: 2rem;
+		border: solid 2px hsla(var(--hue), 7%, 10%, 1);
+		background-color: hsla(var(--hue), 25%, 95%, 1);
+		color: hsla(var(--hue), 7%, 10%, 1);
 		box-shadow: 0.5rem 0.5rem 0 hsla(0, 100%, 0%, 0.7);
 		transition:
 			display 0.5s ease-in-out,
 			opacity 0.5s ease-in-out;
 		transition-behavior: allow-discrete;
 		opacity: 0;
-		& h2 {
-			font-size: 1rem;
-			margin: 0;
+		& header {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+			& h2 {
+				font-size: 1rem;
+				margin: 0;
+				padding: 0;
+			}
 		}
 		& form {
 			display: grid;
@@ -103,6 +110,7 @@
 			grid-template-columns: auto 2rem auto;
 			column-gap: var(--gap);
 			justify-content: center;
+			padding: var(--padding);
 			align-items: center;
 
 			& > label {
@@ -124,16 +132,6 @@
 
 			@starting-style {
 				opacity: 0;
-			}
-		}
-		& header {
-			display: flex;
-			flex-wrap: nowrap;
-			align-items: center;
-			justify-content: space-between;
-			h2 {
-				margin: 0;
-				padding: 0;
 			}
 		}
 	}

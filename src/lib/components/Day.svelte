@@ -22,10 +22,13 @@
 		& > header {
 			text-align: center;
 			user-select: none;
+			backdrop-filter: blur(3px);
+			padding-block: 0.125rem;
+			z-index: 1;
 		}
 
 		&:not(:first-child) {
-			border-left: gray solid 1px;
+			border-inline-end: gray solid 1px;
 		}
 	}
 </style>

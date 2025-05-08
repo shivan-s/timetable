@@ -51,12 +51,6 @@ class Item implements ItemBase {
 		this.#updateItems();
 	}
 
-	/** Removes time and day assignment  */
-	unassign(): void {
-		this.time = null;
-		this.#updateItems();
-	}
-
 	/** Deletes the item */
 	delete(): void {
 		this.#removeItems();

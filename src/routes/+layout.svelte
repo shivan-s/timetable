@@ -14,8 +14,17 @@
 <footer style="--hue: {SEED}"><Footer /></footer>
 
 <style>
+	@font-face {
+		font-family: 'Nunito';
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+		src: url('/fonts/Nunito.ttf') format('ttf');
+	}
 	:global(*) {
 		box-sizing: border-box;
+		font-family: 'Nunito', sans-serif;
+		line-height: 1;
 	}
 	:root {
 		/* colour */
@@ -45,6 +54,7 @@
 		flex-direction: column;
 		gap: var(--gap);
 		padding: var(--padding);
+		width: 100dvw;
 	}
 
 	header {
@@ -56,5 +66,6 @@
 		background-color: hsla(var(--hue), 25%, 95%, 1);
 		color: hsla(var(--hue), 8%, 10%, 1);
 		padding-block-end: 0.25rem;
+		width: 100dvw;
 	}
 </style>
