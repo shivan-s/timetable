@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { DAYS, HOURS } from '$lib/constants';
+	import { DAYS, HOURS, SEED } from '$lib/constants';
 	import Day from '$lib/components/Day.svelte';
 	import Hour from '$lib/components/Hour.svelte';
 
 	const { send, receive } = $props();
 </script>
 
-<section style="--daylength: {DAYS.length}">
+<section style="--daylength: {DAYS.length}; --hue: {SEED}">
 	<div class="hour-column" style="--hourlength: {HOURS.length}">
 		<span>&nbsp;</span>
 		{#each HOURS as hour (hour)}<span>{hour}</span>{/each}
@@ -27,7 +27,9 @@
 		width: 100dwh;
 		display: grid;
 		grid-template-columns: auto repeat(var(--daylength), 1fr);
-		border: 3px solid var(--c-primary);
+		border-width: 3px;
+		border-style: solid;
+		border-color: hsla(var(--hue), 7%, 10%, 1);
 		overflow: scroll;
 		scrollbar-width: none;
 	}

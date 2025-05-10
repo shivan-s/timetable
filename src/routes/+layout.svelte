@@ -14,24 +14,12 @@
 <footer style="--hue: {SEED}"><Footer /></footer>
 
 <style>
-	@font-face {
-		font-family: 'Nunito';
-		font-optical-sizing: auto;
-		font-weight: 400;
-		font-style: normal;
-		src: url('/fonts/Nunito.ttf') format('ttf');
-	}
 	:global(*) {
 		box-sizing: border-box;
 		font-family: 'Nunito', sans-serif;
 		line-height: 1;
 	}
 	:root {
-		/* colour */
-		--c-primary: hsla(300, 7%, 10%, 1);
-		--c-highlight: hsla(300, 85%, 85%, 1);
-		--c-background: hsla(300, 85%, 95%, 1);
-		--c-shadow: hsla(300, 7%, 10%, 0.6);
 		/* spacing */
 		--border-radius: 0.25rem;
 		--gap: 0.5rem;
@@ -69,5 +57,10 @@
 		color: hsla(var(--hue), 8%, 10%, 1);
 		padding-block-end: 0.25rem;
 		width: 100dvw;
+	}
+
+	@font-face {
+		font-family: 'Nunito' sans-serif;
+		src: url('$lib/assets/fonts/Nunito-VariableFont_wght.ttf') format('ttf');
 	}
 </style>

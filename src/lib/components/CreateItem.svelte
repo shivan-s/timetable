@@ -108,7 +108,7 @@
 				'input button';
 			grid-template-rows: auto auto;
 			grid-template-columns: auto 2rem auto;
-			column-gap: var(--gap);
+			gap: var(--gap);
 			justify-content: center;
 			padding: var(--padding);
 			align-items: center;

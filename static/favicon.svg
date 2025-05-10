@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="favicon.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect5"
+       width="27.841631"
+       height="8.8165169"
+       x="2.0881224"
+       y="2.3201358"
+       inkscape:label="rect5" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect1"
+       width="28"
+       height="28"
+       x="2"
+       y="2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.035;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       d="M 16,1.3578789 V 29.661832 h 0.299292"
+       id="path4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       d="m 1.9334466,11.136652 c 27.2229284,0 27.2229284,0 27.2229284,0 v -0.07734"
+       id="path5" />
+  </g>
+</svg>
