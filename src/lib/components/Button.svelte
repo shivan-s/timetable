@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { SEED } from '$lib/constants';
 	import type Item from '$lib/items';
 	import { dragging } from '$lib/stores';
 	import type { Snippet } from 'svelte';
@@ -10,7 +9,7 @@
 		children: Snippet;
 	}
 
-	let { children, hue = SEED, ...restProps }: Props = $props();
+	let { children, hue, ...restProps }: Props = $props();
 </script>
 
 <button disabled={!!$dragging} style="--hue: {hue}" {...restProps}>{@render children()}</button>

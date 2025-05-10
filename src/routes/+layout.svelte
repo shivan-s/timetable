@@ -61,7 +61,7 @@
 	}
 
 	@font-face {
-		font-family: 'Nunito' sans-serif;
-		src: url('$lib/assets/fonts/Nunito-VariableFont_wght.ttf') format('ttf');
+		font-family: 'Nunito';
+		src: url('$lib/assets/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
 	}
 </style>

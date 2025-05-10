@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DAY, HOUR } from '$lib/constants';
+	import { DAYS, HOURS, SEED, type DAY, type HOUR } from '$lib/constants';
 	import { droppable, handleDrop } from '$lib/dnd';
 	import CreateItem from './CreateItem.svelte';
 	import Item from '$lib/components/Item.svelte';
@@ -24,9 +24,15 @@
 		title: `${day} ${hour}`,
 		popovertarget: `popover-${day}-${hour}`
 	};
+
+	const hue =
+		SEED + (DAYS.findIndex((d) => d === day) + HOURS.findIndex((h) => h === hour)) * (30 + 60);
 </script>
 
-<div use:droppable={{ container: `${day}-${hour}`, callbacks: { onDrop: handleDrop } }}>
+<div
+	style="--hue: {hue}"
+	use:droppable={{ container: `${day}-${hour}`, callbacks: { onDrop: handleDrop } }}
+>
 	{#each $items.filter((i) => i.time?.day === day && i.time?.hour === hour) as item (item.id)}
 		<span animate:flip={{ easing: sineIn }}>
 			<Item {send} {receive} {item} />
@@ -38,7 +44,7 @@
 		</span>
 	</button>
 </div>
-<CreateItem {day} {hour} popoverId={buttonProps.popovertarget} />
+<CreateItem {hue} {day} {hour} popoverId={buttonProps.popovertarget} />
 
 <style>
 	div {
@@ -47,7 +53,7 @@
 		gap: var(--gap);
 		align-items: center;
 		border: none;
-		background: inherit;
+		background-color: hsla(var(--hue), 25%, 95%, 1);
 		border-top: lightgray solid 1px;
 		min-height: 3rem;
 		min-width: 10ch;

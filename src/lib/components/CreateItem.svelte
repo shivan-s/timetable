@@ -10,12 +10,13 @@
 	import Icon from '$lib/components/Icon.svelte';
 
 	interface Props {
-		day?: DAY;
-		hour?: HOUR;
+		day: DAY;
+		hour: HOUR;
+		hue: number;
 		popoverId: HTMLButtonAttributes['popovertarget'];
 	}
 
-	const { day, hour, popoverId }: Props = $props();
+	const { day, hour, popoverId, hue }: Props = $props();
 
 	const inputProps: HTMLInputAttributes & { name: string; minlength: number; maxlength: number } = {
 		id: `create-${day}-${hour}`,
@@ -55,13 +56,14 @@
 	}
 </script>
 
-<dialog style="--hue: {SEED}" {...dialogProps}>
+<dialog style="--hue: {hue}" {...dialogProps}>
 	<header>
 		<h2 class="time">
 			{day}
 			{hour}
 		</h2>
 		<Button
+			{hue}
 			aria-label={m.close()}
 			title={m.close()}
 			popovertarget={dialogProps.id}
@@ -74,7 +76,7 @@
 			<Input {...inputProps} />
 		</span>
 		<span class="button">
-			<Button><Icon icon="create" /></Button>
+			<Button {hue}><Icon icon="create" /></Button>
 		</span>
 	</form>
 </dialog>
