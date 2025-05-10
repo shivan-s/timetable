@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Item from '$lib/items';
-	import { draggable, UNASSIGNED_ITEMS_CONTAINER } from '$lib/dnd';
+	import { draggable } from '$lib/dnd';
 	import Icon from '$lib/components/Icon.svelte';
 	import { error } from '@sveltejs/kit';
-	import { items } from '$lib/stores';
+	import { dragging, items } from '$lib/stores';
 	import { crossfade } from 'svelte/transition';
 	import Button from '$lib/components/Button.svelte';
 
@@ -29,15 +29,23 @@
 		item.delete();
 	}
 
-	const container = item.time ? `${item.time.day}-${item.time.hour}` : UNASSIGNED_ITEMS_CONTAINER;
+	const container = item.time ? `${item.time.day}-${item.time.hour}` : '';
 </script>
 
 <div
 	title={item.name}
+	class:dragging={$dragging === item.id}
 	style="--hue: {item.hue}"
 	in:receive
 	out:send
-	use:draggable={{ container, dragData: item }}
+	use:draggable={{
+		container,
+		dragData: item,
+		callbacks: {
+			onDragStart: () => dragging.set(item.id),
+			onDragEnd: () => dragging.set(null)
+		}
+	}}
 >
 	<span>
 		{item.name}
@@ -51,6 +59,17 @@
 </div>
 
 <style>
+	@keyframes pulse {
+		0% {
+			transform: translateY(0);
+		}
+		80% {
+			transform: translateY(-0.25rem);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
 	div {
 		--sat: 75%;
 		display: grid;
@@ -72,6 +91,8 @@
 	}
 	div:active {
 		cursor: grabbing;
+		z-index: 1;
+		animation: pulse 1s infinite;
 		box-shadow: 0.5rem 0.5rem 0.125rem hsla(var(--hue), var(--sat), 20%, 0.6);
 	}
 </style>

@@ -46,7 +46,9 @@
 		padding: 0rem;
 		min-height: 100dvh;
 	}
-
+	:global(body:has(:popover-open) :is(button, a)) {
+		pointer-events: none;
+	}
 	main {
 		display: flex;
 		background-color: hsla(var(--hue), 25%, 95%, 1);

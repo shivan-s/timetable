@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { SEED } from '$lib/constants';
 	import type Item from '$lib/items';
+	import { dragging } from '$lib/stores';
 	import type { Snippet } from 'svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
@@ -12,7 +13,7 @@
 	let { children, hue = SEED, ...restProps }: Props = $props();
 </script>
 
-<button style="--hue: {hue}" {...restProps}>{@render children()}</button>
+<button disabled={!!$dragging} style="--hue: {hue}" {...restProps}>{@render children()}</button>
 
 <style>
 	button {
@@ -26,6 +27,7 @@
 		transition-property: background-color, outline;
 		transition-timing-function: ease-in-out;
 		transition-duration: 0.3s;
+		pointer-events: auto !important;
 		&:hover {
 			background-color: hsla(var(--hue), 75%, 90%, 1);
 		}

@@ -70,9 +70,8 @@
 			& > span.icon {
 				width: 2rem;
 				transition:
-					display 0.5s ease-in-out,
-					opacity 0.5s ease-in-out;
-				transition-behavior: allow-discrete;
+					display 0.5s ease-in-out allow-discrete,
+					opacity 0.5s ease-in-out allow-discrete;
 				visibility: hidden;
 				opacity: 0;
 			}

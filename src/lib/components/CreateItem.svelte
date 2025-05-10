@@ -86,10 +86,10 @@
 		color: hsla(var(--hue), 7%, 10%, 1);
 		box-shadow: 0.5rem 0.5rem 0 hsla(0, 100%, 0%, 0.7);
 		transition:
-			display 0.5s ease-in-out,
-			opacity 0.5s ease-in-out;
-		transition-behavior: allow-discrete;
+			display 0.5s ease-in-out allow-discrete,
+			opacity 0.5s ease-in-out allow-discrete;
 		opacity: 0;
+
 		& header {
 			display: flex;
 			flex-wrap: nowrap;
@@ -133,6 +133,10 @@
 			@starting-style {
 				opacity: 0;
 			}
+		}
+		&::backdrop {
+			backdrop-filter: blur(5px);
+			opacity: 1;
 		}
 	}
 </style>
