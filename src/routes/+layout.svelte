@@ -44,6 +44,7 @@
 		flex-direction: column;
 		gap: var(--gap);
 		padding: var(--padding);
+		max-height: 100dvh;
 		width: 100dvw;
 	}
 

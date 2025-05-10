@@ -23,8 +23,8 @@
 <style>
 	section {
 		z-index: 0;
+		width: 100%;
 		height: 100%;
-		width: 100dwh;
 		display: grid;
 		grid-template-columns: auto repeat(var(--daylength), 1fr);
 		border-width: 3px;

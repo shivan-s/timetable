@@ -91,6 +91,7 @@
 	}
 	div:active {
 		cursor: grabbing;
+		user-select: none;
 		z-index: 1;
 		animation: pulse 1s infinite;
 		box-shadow: 0.5rem 0.5rem 0.125rem hsla(var(--hue), var(--sat), 20%, 0.6);

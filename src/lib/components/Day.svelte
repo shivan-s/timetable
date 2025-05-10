@@ -15,15 +15,16 @@
 
 <style>
 	div {
-		position: sticky;
-		top: 0;
 		display: grid;
 		grid-template-rows: auto repeat(var(--hourlength), 1fr);
 		& > header {
+			position: sticky;
+			top: 0;
 			text-align: center;
 			user-select: none;
 			backdrop-filter: blur(3px);
 			padding-block: 0.125rem;
+			backdrop-filter: blur(3px);
 			z-index: 1;
 		}
 
