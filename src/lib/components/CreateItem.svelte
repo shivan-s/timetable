@@ -84,6 +84,7 @@
 		border: solid 2px hsla(var(--hue), 7%, 10%, 1);
 		background-color: hsla(var(--hue), 25%, 95%, 1);
 		color: hsla(var(--hue), 7%, 10%, 1);
+		padding: var(--padding);
 		box-shadow: 0.5rem 0.5rem 0 hsla(0, 100%, 0%, 0.7);
 		transition:
 			display 0.5s ease-in-out allow-discrete,
@@ -96,6 +97,7 @@
 			align-items: center;
 			justify-content: space-between;
 			& h2 {
+				line-height: 1;
 				font-size: 1rem;
 				margin: 0;
 				padding: 0;
@@ -103,14 +105,11 @@
 		}
 		& form {
 			display: grid;
-			grid-template-areas:
-				'label label'
-				'input button';
-			grid-template-rows: auto auto;
-			grid-template-columns: auto 2rem auto;
+			grid-template-areas: 'label input button';
+			grid-template-rows: auto;
+			grid-template-columns: auto auto auto;
 			gap: var(--gap);
 			justify-content: center;
-			padding: var(--padding);
 			align-items: center;
 
 			& > label {
