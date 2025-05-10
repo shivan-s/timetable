@@ -75,6 +75,9 @@
 				visibility: hidden;
 				opacity: 0;
 			}
+			&:focus {
+				border: 2px dashed grey;
+			}
 		}
 		&:hover {
 			& > button {
