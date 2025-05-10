@@ -8,7 +8,8 @@ At the pole studio I go to I was also intrigued at how the manager and owner wou
 
 ## Demo
 
-
-
 https://github.com/user-attachments/assets/827ef7d6-2684-4f55-be52-f14dde8841d9
 
+## Notes
+
+This is a simple hobby project that won't be worked on much, so the implementation may not be perfect (e.g. this might not work well on mobile).
