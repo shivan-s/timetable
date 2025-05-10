@@ -26,8 +26,6 @@
 		}
 	}
 
-	$inspect($items);
-
 	const [send, receive] = crossfade({ easing: sineIn, fallback: scale });
 </script>
 
