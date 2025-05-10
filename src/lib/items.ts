@@ -78,6 +78,7 @@ class Item implements ItemBase {
 		}
 		const hue = (hash + SEED) % 360;
 		this.hue = hue;
+		this.#updateItems();
 	}
 }
 export default Item;
