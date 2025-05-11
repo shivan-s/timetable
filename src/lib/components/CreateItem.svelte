@@ -3,7 +3,7 @@
 	import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 	import { z } from 'zod';
 	import * as m from '$i18n/messages.js';
-	import { SEED, type DAY, type HOUR } from '$lib/constants';
+	import { type DAY, type HOUR } from '$lib/constants';
 	import Input from '$lib/components/Input.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
