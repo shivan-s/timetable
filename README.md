@@ -8,7 +8,7 @@ At the pole studio I go to I was also intrigued at how the manager and owner wou
 
 ## Demo
 
-https://github.com/user-attachments/assets/827ef7d6-2684-4f55-be52-f14dde8841d9
+![Demo](./demo.gif)
 
 ## Notes
 
