@@ -27,8 +27,4 @@ export const HOURS = [
 	'8PM'
 ] as const;
 
-export type COLOURS = typeof COLOURS;
-export type COLOUR = COLOURS[number];
-export const COLOURS = ['red'] as const;
-
 export const SEED = Math.floor(Math.random() * 360);

@@ -8,7 +8,8 @@ export default defineConfig({
 		paraglideVitePlugin({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide',
-			disableAsyncLocalStorage: true
+			disableAsyncLocalStorage: true,
+			strategy: ['preferredLanguage', 'cookie', 'url']
 		})
 	]
 });
