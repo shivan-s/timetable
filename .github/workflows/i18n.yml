@@ -20,4 +20,4 @@ jobs:
       - name: Clean Install
         run: npm ci && npm run build
       - name: i18n translate
-        run: npx @inlang/cli machine translate --project ./project.inlang -f
+        run: npx @inlang/cli machine translate --project ./project.inlang
