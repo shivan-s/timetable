@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Nunito', sans-serif;
+	line-height: 1;
+}
+
+:root {
+	/* spacing */
+	--border-radius: 0.25rem;
+	--gap: 0.5rem;
+	--padding-inline: 0.5rem;
+	--padding: 0.5rem;
+}
+
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	margin: 0rem;
+	padding: 0rem;
+	min-height: 100dvh;
+}
+
+body:has(:popover-open) :is(button, a) {
+	pointer-events: none;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('$lib/assets/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+}

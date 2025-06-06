@@ -7,7 +7,7 @@
 	import { items } from '$lib/stores';
 	import { sineIn } from 'svelte/easing';
 	import type { crossfade } from 'svelte/transition';
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/Icon';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
 	interface Props {

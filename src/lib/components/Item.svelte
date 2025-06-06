@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Item from '$lib/items';
 	import { draggable } from '$lib/dnd';
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/Icon';
 	import { error } from '@sveltejs/kit';
 	import { dragging, items } from '$lib/stores';
 	import { crossfade } from 'svelte/transition';
-	import Button from '$lib/components/Button.svelte';
+	import Button from '$lib/components/Button';
 
 	interface Props {
 		item: Item;

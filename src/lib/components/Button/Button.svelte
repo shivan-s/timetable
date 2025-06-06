@@ -1,3 +1,7 @@
+<!--
+@component
+Button
+-->
 <script lang="ts">
 	import type Item from '$lib/items';
 	import { dragging } from '$lib/stores';

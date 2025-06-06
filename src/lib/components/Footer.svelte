@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/Icon';
 	import shivanLogo from '$lib/assets/img/Shivan-Logo-Black.png';
 	const LOVE = '💓';
 	const githubLink = 'https://github.com/shivan-s/timetable';
