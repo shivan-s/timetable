@@ -60,13 +60,13 @@
 <style>
 	@keyframes pulse {
 		0% {
-			transform: translateY(0);
+			transform: translatey(0);
 		}
 		80% {
-			transform: translateY(-0.25rem);
+			transform: translatey(-0.25rem);
 		}
 		100% {
-			transform: translateY(0);
+			transform: translatey(0);
 		}
 	}
 	div {
@@ -77,11 +77,11 @@
 		align-items: center;
 		grid-gap: 0.25rem;
 		cursor: grab;
-		color: hsla(var(--hue), var(--sat), 10%, 1);
-		border: 2px solid hsla(var(--hue), var(--sat), 15%, 1);
+		color: hsl(var(--hue) var(--sat) 10% / 1);
+		border: 2px solid hsl(var(--hue) var(--sat) 15% / 1);
 		padding: 0.25rem 0.5rem;
-		background-color: hsla(var(--hue), var(--sat), 80%, 1);
-		box-shadow: 0.125rem 0.125rem 0 hsla(var(--hue), var(--sat), 15%, 0.8);
+		background-color: hsl(var(--hue) var(--sat) 80% / 1);
+		box-shadow: 0.125rem 0.125rem 0 hsl(var(--hue) var(--sat) 15% / 0.8);
 		z-index: 1;
 		transition: box-shadow 0.5s ease-in-out;
 		& span {
@@ -92,9 +92,6 @@
 		cursor: grabbing;
 		z-index: 1;
 		animation: pulse 1s infinite;
-		box-shadow: 0.5rem 0.5rem 0.125rem hsla(var(--hue), var(--sat), 20%, 0.6);
-		& span {
-			user-select: none;
-		}
+		box-shadow: 0.5rem 0.5rem 0.125rem hsl(var(--hue) var(--sat) 20% / 0.6);
 	}
 </style>

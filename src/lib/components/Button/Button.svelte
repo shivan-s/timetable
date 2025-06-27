@@ -1,10 +1,5 @@
-<!--
-@component
-Button
--->
 <script lang="ts">
 	import type Item from '$lib/items';
-	import { dragging } from '$lib/stores';
 	import type { Snippet } from 'svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
@@ -16,7 +11,13 @@ Button
 	let { children, hue, ...restProps }: Props = $props();
 </script>
 
-<button disabled={!!$dragging} style="--hue: {hue}" {...restProps}>{@render children()}</button>
+<!--
+@component
+
+Button
+-->
+
+<button style="--hue: {hue}" {...restProps}>{@render children()}</button>
 
 <style>
 	button {
