@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { crossfade, scale } from 'svelte/transition';
-	import { sineIn } from 'svelte/easing';
+	import { crossfade, scale, fly } from 'svelte/transition';
+	import { sineInOut } from 'svelte/easing';
 	import { items } from '$lib/stores';
 	import Timetable from '$lib/components/Timetable.svelte';
 	import { page } from '$app/state';
@@ -26,7 +26,7 @@
 		}
 	}
 
-	const [send, receive] = crossfade({ easing: sineIn, fallback: scale });
+	const [send, receive] = crossfade({ easing: sineInOut, fallback: scale });
 </script>
 
 <Timetable {send} {receive} />
