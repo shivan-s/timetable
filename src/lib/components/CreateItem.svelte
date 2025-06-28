@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Item from '$lib/items';
 	import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
-	import { z } from 'zod';
+	import { z } from 'zod/v4';
 	import * as m from '$i18n/messages.js';
 	import { type DAY, type HOUR } from '$lib/constants';
 	import Input from '$lib/components/Input.svelte';
@@ -85,7 +85,7 @@
 	dialog {
 		border: solid 2px hsla(var(--hue), 7%, 10%, 1);
 		background-color: hsla(var(--hue), 25%, 95%, 1);
-		color: hsla(var(--hue), 7%, 10%, 1);
+		color: hsl(var(--hue), 7%, 10%, 1);
 		padding: var(--padding);
 		box-shadow: 0.5rem 0.5rem 0 hsla(0, 100%, 0%, 0.7);
 		transition:
