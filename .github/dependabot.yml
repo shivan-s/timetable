@@ -1,15 +1,14 @@
 # Docs: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     reviewers:
-      - "shivan-s"
+      - 'shivan-s'
     assignees:
-      - "shivan-s"
+      - 'shivan-s'
     labels:
-      - "updates"
-    target-branch: "updates"
-
+      - 'updates'
+    target-branch: 'updates'
