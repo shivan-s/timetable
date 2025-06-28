@@ -5,3 +5,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    reviewers:
+      - "shivan-s"
+    assignees:
+      - "shivan-s"
+    labels:
+      - "updates"
+    target-branch: "updates"
+
